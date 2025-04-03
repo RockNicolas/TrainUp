@@ -36,7 +36,6 @@ class AuthController extends Controller
             'username' => 'As credenciais fornecidas não correspondem aos nossos registros.',
         ]);
     }
-
     public function logout(Request $request)
     {
         Auth::logout();
