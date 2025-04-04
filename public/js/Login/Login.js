@@ -1,28 +1,51 @@
-const togglePassword = document.getElementById('togglePassword');
-const passwordField = document.getElementById('senha');
+function togglePasswordVisibility(toggleBtnId, passwordFieldId) {
+    const toggleBtn = document.getElementById(toggleBtnId);
+    const passwordField = document.getElementById(passwordFieldId);
 
-togglePassword.addEventListener('click', function () {
-    const type = passwordField.type === 'password' ? 'text' : 'password';
-    passwordField.type = type;
-    this.classList.toggle('fa-eye-slash');
-});
+    toggleBtn.addEventListener('click', function () {
+        const type = passwordField.type === 'password' ? 'text' : 'password';
+        passwordField.type = type;
+        this.classList.toggle('fa-eye-slash');
+    });
+}
 
 window.addEventListener('DOMContentLoaded', function () {
     const errorMessage = document.getElementById('error-message');
     if (errorMessage) {
-        setTimeout(function () {
-            errorMessage.style.display = 'none';
-        }, 5000);
+        setTimeout(() => errorMessage.style.display = 'none', 5000);
     }
+
+    togglePasswordVisibility('togglePassword', 'senha');
+    togglePasswordVisibility('toggleRegisterPassword', 'password');
+
+    const senhaInput = document.getElementById('senha');
+    const capsWarning = document.getElementById('capsWarning');
+
+    senhaInput.addEventListener('keydown', function (event) {
+        capsWarning.classList.toggle('hidden', !event.getModifierState('CapsLock'));
+    });
 });
 
-const senhaInput = document.getElementById('senha');
-const capsWarning = document.getElementById('capsWarning');
+function toggleForm() {
+    const container = document.getElementById('container');
+    const formPanel = document.querySelector('.form-panel');
+    const messagePanel = document.querySelector('.message-panel');
 
-senhaInput.addEventListener('keydown', function (event) {
-    if (event.getModifierState('CapsLock')) {
-        capsWarning.classList.remove('hidden');
-    } else {
-        capsWarning.classList.add('hidden');
-    }
-});
+    const loginForm = document.querySelector('.login-form');
+    const registerForm = document.querySelector('.register-form');
+    const loginMessage = document.querySelector('.login-message');
+    const registerMessage = document.querySelector('.register-message');
+
+    formPanel.style.opacity = "0";
+    messagePanel.style.opacity = "0";
+    
+    setTimeout(() => {
+        container.classList.toggle('flex-row-reverse');
+        loginForm.classList.toggle('hidden');
+        registerForm.classList.toggle('hidden');
+        loginMessage.classList.toggle('hidden');
+        registerMessage.classList.toggle('hidden');
+        formPanel.style.opacity = "1";
+        messagePanel.style.opacity = "1";
+    }, 350);
+}
