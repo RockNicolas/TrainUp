@@ -1,0 +1,25 @@
+@keyframes colorShift {
+    0% { color: #fbbf24; }  
+    25% { color: #facc15; }  
+    50% { color: #eab308; }  
+    75% { color: #ca8a04; }  
+    100% { color: #fbbf24; }  
+}
+
+.animated-text {
+    animation: colorShift 3s infinite alternate;
+}
+
+.custom-button {
+    border: 3px solid #fbbf24;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+    background: #fbbf24;
+    color: white;
+    border-color: #eab308;
+}

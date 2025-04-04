@@ -4,5 +4,6 @@
         <li><a href="#" class="block hover:bg-gray-700 p-2 rounded">Home</a></li>
         <li><a href="#" class="block hover:bg-gray-700 p-2 rounded">Perfil</a></li>
         <li><a href="#" class="block hover:bg-gray-700 p-2 rounded">Configurações</a></li>
+        <li><a href="#" class="block hover:bg-gray-700 p-2 rounded">Sair</a></li>
     </ul>
 </div>

@@ -15,7 +15,6 @@
     <div class="form-panel w-1/2 flex flex-col justify-center items-center px-12 bg-gray-200 transition-all">
       <div class="login-form">
       <i class="fas fa-dumbbell text-6xl text-yellow-500 mb-6 flex justify-center"></i>
-
         <h2 class="text-2xl font-bold text-gray-800 mb-2">Bem-Vindo, Personal Trainer!</h2>
         <p class="text-gray-600 mb-6">Acesse sua conta para gerenciar seus alunos.</p>
         <form action="{{ url('login') }}" method="POST" class="w-full">

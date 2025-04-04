@@ -15,6 +15,26 @@
     <div class="logo-container" onclick="toggleMenu()">
         <img id="logo" class="rotate transition-transform duration-500 ease-in-out" src="{{ asset('icons/Icon.png') }}" alt="Ícone" width="52" height="52">
     </div>
+
+    <form class="w-full max-w-2xl mx-auto bg-white p-2 rounded-lg shadow-md">
+    <input 
+        type="text" 
+        name="query" 
+        placeholder="Pesquisar Alunos..." 
+        required
+        class="w-full  rounded-lg focus:ring-2  focus:ring-yellow-500 focus:outline-none"
+    >
+</form>
+
+
+     @if(isset($users))
+        <ul>
+            @foreach($users as $user)
+                <li>{{ $user->name }} - {{ $user->email }}</li>
+            @endforeach
+        </ul>
+      @endif 
+
     <div class="relative">
       <button class="flex items-center text-white focus:outline-none" onclick="toggleDropdown()">
         <i class="fas fa-user-circle text-2xl mr-2"></i>
